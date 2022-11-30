@@ -1,5 +1,5 @@
 import React from "react";
-import "./DateComponent.css";
+import "./styles/DateComponent.css";
 const DateComponent = ({ date }) => {
   return (
     <div className="expense-date">

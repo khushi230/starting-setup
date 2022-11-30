@@ -1,10 +1,11 @@
 import React from "react";
 import IncomeItem from "./IncomeItem";
-import "./Expenses.css";
+import "./styles/Expenses.css";
+import Card from "./Card";
 
 const Income = ({ incomeArray }) => {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <div>Income</div>
       {incomeArray.map((income) => (
         <IncomeItem
@@ -14,7 +15,7 @@ const Income = ({ incomeArray }) => {
           credit={income.credit}
         />
       ))}
-    </div>
+    </Card>
   );
 };
 

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
-import "./Expenses.css";
+import "./styles/Expenses.css";
+import Card from "./Card";
+import ExpenseForm from "./ExpenseForm";
 
 const Expenses = ({ expenseArray }) => {
+  const [expenseList, setExpenseList] = useState(expenseArray);
   return (
-    <div className="expenses">
+    <Card className="expenses">
+      <ExpenseForm setExpenseList={setExpenseList} />
       <div>Expense</div>
-      {expenseArray.map((expense) => (
+      {expenseList.map((expense) => (
         <ExpenseItem
           key={expense.id}
           description={expense.description}
@@ -14,7 +18,7 @@ const Expenses = ({ expenseArray }) => {
           price={expense.price}
         />
       ))}
-    </div>
+    </Card>
   );
 };
 

@@ -1,18 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
-import "./ExpenseItem.css";
+import "./styles/ExpenseItem.css";
 import DateComponent from "./DateComponent";
+import Card from "./Card";
 
 const ExpenseItem = ({ description, date, price }) => {
-  return (
-    <div className="expense-item">
-      <DateComponent date={date} />
+  const [title, setTitle] = useState(description);
 
+  const clickHandler = () => {
+    setTitle((prevState) => {
+      if (prevState === description) {
+        return "updated!";
+      } else {
+        return description;
+      }
+    });
+  };
+
+  return (
+    <Card className="expense-item">
+      <DateComponent date={date} />
       <div className="expense-item__description">
-        <h2>{description}</h2>
+        <h2>{title}</h2>
         <div className="expense-item__price">{price}</div>
       </div>
-    </div>
+      <button
+        onClick={() => {
+          clickHandler();
+        }}
+      >
+        Button
+      </button>
+    </Card>
   );
 };
 
