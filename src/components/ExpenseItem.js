@@ -3,34 +3,32 @@ import React, { useState } from "react";
 import "./styles/ExpenseItem.css";
 import DateComponent from "./DateComponent";
 import Card from "./Card";
-
+import DeleteIcon from "@mui/icons-material/Delete";
+import SelectTextFields from "./Price";
+import InputAdornments from "./NewPrice"
 const ExpenseItem = ({ description, date, price }) => {
-  const [title, setTitle] = useState(description);
-
-  const clickHandler = () => {
-    setTitle((prevState) => {
-      if (prevState === description) {
-        return "updated!";
-      } else {
-        return description;
-      }
-    });
-  };
+  
 
   return (
     <Card className="expense-item">
       <DateComponent date={date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">{price}</div>
+        <h2>{description}</h2>
+
+        {/* <SelectTextFields /> */}
+        <InputAdornments/>
       </div>
-      <button
-        onClick={() => {
-          clickHandler();
-        }}
-      >
-        Button
+      
+
+      <button className="btn">
+        <i ><DeleteIcon/></i>
       </button>
+
+      <form>
+        <div>
+          <input type="checkbox" />
+        </div>
+      </form>
     </Card>
   );
 };

@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./styles/Expenses.css";
 import Card from "./Card";
-import ExpenseForm from "./ExpenseForm";
-
+import NewExpense from "./NewExpense";
+import Title from "./Title";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import LabelBottomNavigation from "./LabelBottomNavigation";
 const Expenses = ({ expenseArray }) => {
-  const [expenseList, setExpenseList] = useState(expenseArray);
+  
   return (
     <Card className="expenses">
-      <ExpenseForm setExpenseList={setExpenseList} />
-      <div>Expense</div>
-      {expenseList.map((expense) => (
+      <Title />
+      <NewExpense />
+
+      {expenseArray.map((expense) => (
         <ExpenseItem
           key={expense.id}
           description={expense.description}
@@ -18,6 +21,7 @@ const Expenses = ({ expenseArray }) => {
           price={expense.price}
         />
       ))}
+      <LabelBottomNavigation/>
     </Card>
   );
 };
