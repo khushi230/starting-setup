@@ -16,4 +16,4 @@ const expenseArray = [
   },
 ];
 
-export default expenseArray;
+export { expenseArray };
